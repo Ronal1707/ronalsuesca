@@ -629,11 +629,44 @@
 
     .ugc-videos {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-      position: sticky;
-      top: 110px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.6rem 1.2rem;
+      align-items: start;
     }
+
+    /* reel de Instagram embebido */
+    .ugc-ig {
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--white);
+      min-height: 420px;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+    }
+    .ugc-ig .instagram-media {
+      margin: 0 !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    .ugc-ig-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      min-height: 420px;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ugc-video figcaption a { color: #6a8aff; text-decoration: none; }
+    .ugc-video figcaption a:hover { color: var(--accent); }
 
     .ugc-video {
       display: flex;
@@ -805,6 +838,7 @@
         position: static;
       }
       .ugc-video { flex: 0 0 68%; max-width: 280px; scroll-snap-align: center; }
+      .ugc-video.is-ig { flex: 0 0 88%; max-width: 340px; }
     }
 
     @media (max-width: 520px) {
@@ -1137,6 +1171,15 @@
           </div>
           <figcaption><strong>Arriendo</strong>Inmobiliaria · Recorrido de apartamento</figcaption>
         </figure>
+
+        <figure class="ugc-video is-ig">
+          <div class="ugc-ig">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRN0WdhEjIL/" data-instgrm-version="14">
+              <a class="ugc-ig-fallback" href="https://www.instagram.com/reel/DRN0WdhEjIL/" target="_blank" rel="noopener">▶ Ver reel en Instagram</a>
+            </blockquote>
+          </div>
+          <figcaption><strong>Reel en Instagram</strong><a href="https://www.instagram.com/reel/DRN0WdhEjIL/" target="_blank" rel="noopener">Ver publicación original →</a></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -1229,5 +1272,6 @@
       ugcVideos.forEach(o => { if (o !== v) o.pause(); });
     }));
   </script>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html> 
