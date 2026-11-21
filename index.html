@@ -634,22 +634,6 @@
       align-items: start;
     }
 
-    /* reel de Instagram embebido */
-    .ugc-ig {
-      aspect-ratio: 9 / 16;
-      border-radius: 14px;
-      overflow: hidden;
-      background: var(--white);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.35);
-    }
-    .ugc-ig iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-    .ugc-video figcaption a { color: #6a8aff; text-decoration: none; }
-    .ugc-video figcaption a:hover { color: var(--accent); }
 
     .ugc-video {
       display: flex;
@@ -821,7 +805,6 @@
         position: static;
       }
       .ugc-video { flex: 0 0 68%; max-width: 280px; scroll-snap-align: center; }
-      .ugc-video.is-ig { flex: 0 0 88%; max-width: 340px; }
     }
 
     @media (max-width: 520px) {
@@ -1134,11 +1117,11 @@
       </div>
 
       <div class="ugc-videos">
-        <figure class="ugc-video is-ig">
-          <div class="ugc-ig">
-            <iframe src="https://www.instagram.com/reel/DRN0WdhEjIL/embed/" title="Reel UGC en Instagram" loading="lazy" scrolling="no" frameborder="0" allowtransparency="true" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write"></iframe>
+        <figure class="ugc-video">
+          <div class="ugc-frame">
+            <video src="assets/ugc/mascota-ugc.mp4" poster="assets/ugc/mascota-ugc.jpg" controls playsinline preload="none"></video>
           </div>
-          <figcaption><strong>Reel en Instagram</strong><a href="https://www.instagram.com/reel/DRN0WdhEjIL/" target="_blank" rel="noopener">Ver publicación original →</a></figcaption>
+          <figcaption><strong>Storytelling</strong>Historia con mascota · Hook narrativo</figcaption>
         </figure>
 
         <figure class="ugc-video">
