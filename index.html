@@ -63,6 +63,15 @@
       transition: color 0.2s;
     }
     nav a:hover { color: var(--accent); }
+    nav a.nav-ugc {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.45rem 0.9rem;
+      border-radius: 3px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    nav a.nav-ugc:hover { background: #e03a2f; color: var(--white); }
 
     /* ── HERO ────────────────────────────────────── */
     .hero {
@@ -166,6 +175,21 @@
       transition: border-color 0.25s, color 0.25s, transform 0.2s;
     }
     .btn-outline:hover { border-color: var(--btn); color: var(--btn); transform: translateY(-3px); }
+
+    .btn-ugc {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.9rem 2.2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-ugc:hover { background: #e03a2f; transform: translateY(-3px); }
 
     /* stat pills */
     .stat-row {
@@ -786,6 +810,8 @@
     @media (max-width: 520px) {
       .ugc-types { grid-template-columns: 1fr; }
       nav a { margin-left: 1rem; }
+      nav { line-height: 2.3; text-align: right; }
+      nav a.nav-ugc { padding: 0.3rem 0.7rem; }
       footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
       footer nav a { margin: 0 0.5rem; }
     }
@@ -800,7 +826,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#proyectos">Proyectos</a>
-      <a href="#ugc">UGC</a>
+      <a href="#ugc" class="nav-ugc">▶ UGC</a>
       <a href="#resultados">Resultados</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -816,6 +842,7 @@
       <div class="hero-buttons">
         <a href="#servicios" class="btn-primary">Ver servicios</a>
         <a href="#contacto" class="btn-outline">Hablemos</a>
+        <a href="#ugc" class="btn-ugc">▶ UGC</a>
       </div>
       <div class="stat-row">
         <div class="stat">
