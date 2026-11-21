@@ -523,6 +523,155 @@
       color: var(--btn);
     }
 
+    /* ── CREADOR UGC ─────────────────────────────── */
+    #ugc {
+      background: var(--dark);
+      color: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    #ugc::before {
+      content: '';
+      position: absolute;
+      left: -160px;
+      bottom: -160px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: var(--btn);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    #ugc .section-title { color: var(--bg); }
+    #ugc .section-label { color: #6a8aff; }
+    #ugc .section-sub { color: #9a9790; margin-bottom: 2rem; }
+
+    .ugc-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 4rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ugc-types {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .ugc-type {
+      background: rgba(247,245,232,0.05);
+      border: 1px solid rgba(247,245,232,0.1);
+      border-radius: 6px;
+      padding: 1rem 1.1rem;
+      transition: background 0.25s;
+    }
+    .ugc-type:hover { background: rgba(247,245,232,0.09); }
+    .ugc-type h4 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--bg);
+      margin-bottom: 0.25rem;
+    }
+    .ugc-type p { font-size: 0.82rem; color: #9a9790; line-height: 1.5; }
+
+    .ugc-includes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .ugc-cta {
+      background: linear-gradient(135deg, rgba(0,18,253,0.25), rgba(253,81,69,0.18));
+      border: 1px solid rgba(247,245,232,0.12);
+      border-radius: 8px;
+      padding: 1.8rem;
+    }
+    .ugc-cta h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--bg);
+      margin-bottom: 0.5rem;
+    }
+    .ugc-cta p { font-size: 0.92rem; color: #c9c7bc; line-height: 1.6; margin-bottom: 1.4rem; }
+    .ugc-cta .hero-buttons { gap: 0.8rem; }
+    .ugc-cta .btn-outline { border-color: rgba(247,245,232,0.35); color: var(--bg); }
+    .ugc-cta .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .ugc-videos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+      position: sticky;
+      top: 110px;
+    }
+
+    .ugc-video {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .ugc-frame {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #1f1f1f;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+    }
+    .ugc-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+    .ugc-video figcaption {
+      font-size: 0.8rem;
+      color: #9a9790;
+      line-height: 1.4;
+    }
+    .ugc-video figcaption strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      color: var(--bg);
+      font-size: 0.92rem;
+    }
+
+    /* espacio reservado para próximos videos */
+    .ugc-frame.is-empty {
+      background: rgba(247,245,232,0.03);
+      border: 2px dashed rgba(247,245,232,0.18);
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .ugc-frame.is-empty .play {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(247,245,232,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(247,245,232,0.4);
+      font-size: 1.1rem;
+    }
+    .ugc-frame.is-empty span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(247,245,232,0.45);
+    }
+
     /* ── RESULTADOS ──────────────────────────────── */
     #resultados {
       background: var(--bg);
@@ -620,6 +769,23 @@
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .projects-grid { grid-template-columns: 1fr; }
       .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .ugc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .ugc-videos {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        margin: 0 -2rem;
+        padding: 0 2rem 0.8rem;
+        order: -1;
+        position: static;
+      }
+      .ugc-video { flex: 0 0 68%; max-width: 280px; scroll-snap-align: center; }
+    }
+
+    @media (max-width: 520px) {
+      .ugc-types { grid-template-columns: 1fr; }
+      nav a { margin-left: 1rem; }
       footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
       footer nav a { margin: 0 0.5rem; }
     }
@@ -634,6 +800,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#proyectos">Proyectos</a>
+      <a href="#ugc">UGC</a>
       <a href="#resultados">Resultados</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -877,6 +1044,80 @@
     </div>
   </section>
 
+  <!-- CREADOR UGC -->
+  <section id="ugc">
+    <div class="ugc-grid">
+      <div class="ugc-text">
+        <span class="section-label">Creador UGC</span>
+        <h2 class="section-title">Contenido que se siente <em>real</em></h2>
+        <p class="section-sub">Grabo, actúo y edito videos verticales con estilo natural, como los haría un cliente real, pero pensados para vender. Ideales para anuncios en TikTok, Instagram y Meta Ads, o para las redes orgánicas de tu marca.</p>
+
+        <div class="ugc-types">
+          <div class="ugc-type">
+            <h4>Reseñas y testimonios</h4>
+            <p>Mi experiencia honesta con tu producto, contada a cámara.</p>
+          </div>
+          <div class="ugc-type">
+            <h4>Unboxing y demo</h4>
+            <p>Muestro el producto, cómo se usa y qué lo hace diferente.</p>
+          </div>
+          <div class="ugc-type">
+            <h4>Problema → solución</h4>
+            <p>Hook fuerte en los primeros segundos y tu marca como respuesta.</p>
+          </div>
+          <div class="ugc-type">
+            <h4>Lifestyle</h4>
+            <p>Tu producto integrado en mi día a día: gym, rutina, trabajo.</p>
+          </div>
+        </div>
+
+        <div class="ugc-includes">
+          <span class="skill-pill">Formato 9:16</span>
+          <span class="skill-pill">Guión + hooks</span>
+          <span class="skill-pill">Subtítulos</span>
+          <span class="skill-pill">Edición incluida</span>
+          <span class="skill-pill">Listo para ads</span>
+        </div>
+
+        <div class="ugc-cta">
+          <h3>¿Tienes una marca? Trabajemos juntos</h3>
+          <p>Cuéntame sobre tu producto y el objetivo de la campaña. Te envío una propuesta con ideas de video, tiempos de entrega y tarifa.</p>
+          <div class="hero-buttons">
+            <a href="https://wa.me/573224798300?text=Hola%20Ronal%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20videos%20UGC%20para%20mi%20marca." target="_blank" rel="noopener" class="btn-primary">Cotizar videos UGC</a>
+            <a href="mailto:ronalsuesca.rs@gmail.com?subject=Colaboraci%C3%B3n%20UGC" class="btn-outline">Enviar brief</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ugc-videos">
+        <figure class="ugc-video">
+          <div class="ugc-frame">
+            <video src="assets/ugc/creatina-ugc.mp4" poster="assets/ugc/creatina-ugc.jpg" controls playsinline preload="none"></video>
+          </div>
+          <figcaption><strong>Creatina</strong>Suplementos · Lifestyle gym</figcaption>
+        </figure>
+
+        <!-- VIDEO UGC 2: reemplazar este bloque por un <video> igual al de arriba -->
+        <figure class="ugc-video">
+          <div class="ugc-frame is-empty">
+            <div class="play">▶</div>
+            <span>Próximamente</span>
+          </div>
+          <figcaption><strong>Nuevo video</strong>En producción</figcaption>
+        </figure>
+
+        <!-- VIDEO UGC 3: reemplazar este bloque por un <video> igual al de arriba -->
+        <figure class="ugc-video">
+          <div class="ugc-frame is-empty">
+            <div class="play">▶</div>
+            <span>Próximamente</span>
+          </div>
+          <figcaption><strong>Nuevo video</strong>En producción</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- RESULTADOS -->
   <section id="resultados">
     <span class="section-label">Números reales</span>
@@ -958,6 +1199,12 @@
     document.querySelectorAll('section, .service-card, .project-card').forEach(el => {
       observer.observe(el);
     });
+
+    // UGC: solo un video reproduciéndose a la vez
+    const ugcVideos = document.querySelectorAll('.ugc-frame video');
+    ugcVideos.forEach(v => v.addEventListener('play', () => {
+      ugcVideos.forEach(o => { if (o !== v) o.pause(); });
+    }));
   </script>
 </body>
 </html> 
